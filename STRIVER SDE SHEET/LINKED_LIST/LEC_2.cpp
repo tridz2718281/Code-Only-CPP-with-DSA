@@ -113,6 +113,26 @@ Node<int>* delete_kth(Node<int>* head, int k){
     return head;
 }
 
+Node<int>* insert_head(Node<int>* head, int value){
+    return new Node<int>(value, head);
+}
+
+Node<int>* insert_tail(Node<int>* head, int value){
+
+    if (head == NULL) return new Node<int>(value);
+
+    Node<int>* tail = new Node<int>(15);
+    Node<int>* temp = head;
+    while (temp -> next != NULL)
+        temp = temp -> next;
+    temp -> next = tail;
+    return head;
+}
+
+Node<int>* insert_kth(Node<int>* head, int value){
+    
+}
+
 int main(){
 
     vector<int> vec = {4, 6, 3, 2, 1};
@@ -123,6 +143,10 @@ int main(){
     head = delete_tail(head);
     display_ll(head);
     head = delete_kth(head, 3);
+    display_ll(head);
+    head = insert_head(head, 10);
+    display_ll(head);
+    head = insert_tail(head, 7);
     display_ll(head);
     return 0;
 }
