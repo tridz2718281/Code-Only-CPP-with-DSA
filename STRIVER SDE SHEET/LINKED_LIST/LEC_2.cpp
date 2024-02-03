@@ -129,8 +129,36 @@ Node<int>* insert_tail(Node<int>* head, int value){
     return head;
 }
 
-Node<int>* insert_kth(Node<int>* head, int value){
-    
+Node<int>* insert_kth(Node<int>* head, int k, int value){
+    if (head == NULL && k == 1) return new Node<int>(value);
+    if (k == 1) return new Node<int>(value, head);
+
+    int count = 0;
+    Node<int>* temp = head;
+    while (temp != NULL){
+        count++;
+        if (count == k - 1){
+            temp -> next = new Node<int>(value, temp -> next);
+            return head;
+        }
+        temp = temp -> next;
+    }
+    return head;
+}
+
+Node<int>* insert_n_before_x(Node<int>* head, int n, int x){
+    if (head == NULL) return NULL;
+    if (head -> data == x) return new Node<int>(n, head);
+
+    Node<int>* temp = head;
+    while (temp -> next != NULL){
+        if (temp -> next -> data == x){
+            temp -> next = new Node<int>(n, temp -> next);
+            return head;
+        }
+        temp = temp -> next;
+    }
+    return head;
 }
 
 int main(){
@@ -147,6 +175,10 @@ int main(){
     head = insert_head(head, 10);
     display_ll(head);
     head = insert_tail(head, 7);
+    display_ll(head);
+    head = insert_kth(head, 3, 8);
+    display_ll(head);
+    head = insert_n_before_x(head, 2, 3);
     display_ll(head);
     return 0;
 }
