@@ -68,22 +68,122 @@ void vectorExplained(){
 
     // Traversing vector with iterator.
     for (vector<int>::iterator traverse = v.begin(); traverse != v.end(); traverse++){
-        cout << *(traverse) << "\n"; 
+        cout << *traverse << "\n"; 
     }
     // 'auto' automatically assigns it as a vector iterator according to data.
     for (auto it = v.begin(); it != v.end(); it++){
-        cout << *(it) << " ";
+        cout << *it << " ";
     }
     // For each loop, iterates through elements not memory location.
     for(auto it : v){
         cout << it << " ";
     }
 
+    // Deletion in a vector.
+    v.erase(v.begin() + 1); // Syntax : erase(iterator), deletes second element reshuffling vector.
+    v.erase(v.begin() + 1, v.begin() + 3); // Syntax : erase(start, end), erases elements between start and end - 1.
+
+    // Insertion in a vector.
+    v.insert(v.begin(), 300); // Inserts 300 at the beginning.
+    v.insert(v.begin() + 1, 2, 10); // 2 instances of 10 starting from beginning index + 1.
+    vector<int> copy (2, 50);
+    v.insert(v.begin(), copy.begin(), copy.end()); // Copy elements from 'copy' starting fron begin to end and insert to
+                                                   // beginning of vector 'v'.
+    cout << v.size() << "\n"; // Elements in the vector.
+    v.pop_back(); // Pops out the last element.
+
+    v1.swap(v2); // Swaps the two vectors.
+    v.clear(); // Erases the entire vector to empty vector.
+    cout << v.empty() << "\n"; // 1 -> if v is empty, 0 -> if v is not empty.
+}
+
+// List is same as vector but front operations are also available.
+void listExplained(){
+    list<int> ls;
+
+    // Carries same meaning as operations in list.
+    ls.push_back(2);
+    ls.emplace_back(4);
+
+    // Pushing values to front of list, insert in a vector is costlier.
+    ls.push_front(5);
+    ls.emplace_front(8);
+
+    // Rest functions and iterators are same as in vectors.
+}
+
+void dequeExplained(){
+    deque<int> dq;
+
+    // Placing values to front and back.
+    dq.push_back(1);
+    dq.emplace_back(2);
+    dq.push_front(3);
+    dq.emplace_front(4);
+
+    // Popping elements from both front and back.
+    dq.pop_back();
+    dq.pop_front();
+
+    // Accessing front and back elements.
+    dq.back();
+    dq.front();
+
+    // Rest functions and iterators are same as in vectors.
+}
+
+// Stack follows LIFO = Last In First Out, all operations cost O(1).
+void stackExplained(){
+    stack<int> st;
+
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.emplace(5);
+
+    cout << st.top() << "\n"; // st[2] is invalid, returns element that was pushed last.
+
+    st.pop(); // Pops the top element.
+
+    cout << st.size() << "\n";
+    cout << st.empty() << "\n"; // 1 -> if st is empty, 0 -> if st is not empty.
+
+    stack<int> st1, st2;
+    st1.swap(st2); // Swaps two stacks.
+}
+
+// Queue follows FIFO = Last In First Out, all operations cost O(1).
+void queueExplained(){
+    queue<int> q;
+
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.emplace(4);
+
+    q.back() += 5; // q.back() is the element last pushed onto queue.
+    q.front() += 4; // 1.front() is the beginning element of the queue.
+
+    q.pop(); // Pops the element at the front.
+
+    // size, swap, empty same as stack.
+}
+
+void PQexplained(){
+    priority_queue<int> pq;
+
+    pq.push(1);
+    pq.push(2);
+    pq.emplace(3);
 }
 
 // Driver code.
 int main(){
     pairExplained();
     vectorExplained();
+    listExplained();
+    dequeExplained();
+    stackExplained();
     return 0;
 }

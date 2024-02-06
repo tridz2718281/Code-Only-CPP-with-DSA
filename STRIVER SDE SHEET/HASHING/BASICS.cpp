@@ -54,9 +54,9 @@ int main(){
 
 
     int n1 = 9;
-    int arr1[] = {1, 2, 3, 5, 3, 1, 2, 10, 5};
+    int arr1[] = {1, 2, 3, 5, 5, 5, 2, 10, 5};
     // Pre-computing hash map, coule be map<long long, ..> or similar depending on size required.
-    unordered_map<int, int> mpp;
+    map<int, int> mpp;
     for (int i = 0; i < n1; i++)
         mpp[arr1[i]]++;
     cout << mpp[11] << "\n";    // Resolving custom query.
