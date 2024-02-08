@@ -1,2 +1,2 @@
-# Code Only C++ with DSA
- Complete and Annotated DSA with C++ course.
+# Code-Crafted DSA with C++
+ A comprehensive Data Structures and Algorithms (DSA) course, meticulously crafted from the best sources availabe from all over the internet implemented in C++, accompanied by detailed explanations provided through comments within the C++ files. Ideal for students and professionals seeking to strengthen their understanding of DSA concepts through practical implementation.
